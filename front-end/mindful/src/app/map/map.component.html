@@ -1,0 +1,48 @@
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Community</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        
+      </ul>
+
+    </div>
+  </nav>
+
+  <main role="main" class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="map" *ngIf="lat && lng">
+					<!-- this creates a google map on the page with the given lat/lng from -->
+					<!-- the component as the initial center of the map: -->
+					<agm-map [latitude]="lat" [longitude]="lng">
+					  <agm-marker>
+					  	<!--Nearby User Locations -->
+					  	<agm-marker *ngFor="let marker of markers">
+					  		[latitude]="marker.location[0]"
+					  		[longitude]="marker.location[1]"
+
+					  		<agm-info-window>
+					  			<p>You are {{marker.distance}} Kilometers from this point</p>
+					  		</agm-info-window>
+					  	</agm-marker>
+
+					  </agm-marker>
+					</agm-map>
+					
+				</div>
+			</div>
+		</div>
+  </main><!-- /.container -->
+
+
+<div class="container">
+	<div class= "form-group">
+		<input type="text" placeholder="Search by zipcode" class= "form-control" #search>
+	</div>
+</div>
+
+
