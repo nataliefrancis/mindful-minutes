@@ -5,11 +5,13 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
+// lets database know a type of data that will be accessed
 interface Event {
   date: string;
   details: string;
 }
 
+// extends Event to include the id number
 interface EventId extends Event {
   id: string;
 }
@@ -25,7 +27,7 @@ export class CommunityComponent implements OnInit {
 	public formDate: Date;
 	formDetails;
 	newEvent;
-  eventsCol: AngularFirestoreCollection<Event>;
+  eventsCol: AngularFirestoreCollection<Event>; // sets variable to collection type Event
   events: any; //array that comes back from database, used for html ngFor
 
   constructor(private afs: AngularFirestore) { }
@@ -34,13 +36,13 @@ export class CommunityComponent implements OnInit {
 
       //identifies which collection I am accessing in my database
     this.eventsCol = this.afs.collection('events');
-    // this.events = this. eventsCol.valueChanges();
+    // gets a snapshot of the whole object including id
     this.events = this. eventsCol.snapshotChanges()
       .map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data() as Event;
           const id = a.payload.doc.id;
-          return { id, data };
+          return { id, data }; // creates object that includes the data and the id
         })
       });
   }
@@ -53,7 +55,7 @@ export class CommunityComponent implements OnInit {
   //retrives the details of the form
   onSubmit = (formData) => {
   	this.formDetails= formData.details;
-  		//creates a new event with date and details
+  		//creates a new event object with date and details
   	this.newEvent={
   		date: this.formDate,
   		details: this.formDetails
@@ -63,6 +65,7 @@ export class CommunityComponent implements OnInit {
     this.afs.collection('events').add(this.newEvent)
   }
 
+    //deletes a event from the database
   deleteEvent(eventId) {
     this.afs.doc('events/'+eventId).delete();
   }

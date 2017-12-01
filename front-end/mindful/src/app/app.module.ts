@@ -14,6 +14,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AppComponent } from './app.component';
 import { CommunityComponent } from './community/community.component';
 import { MapComponent } from './map/map.component';
+import { LandingComponent } from './landing/landing.component';
 
 export const firebaseConfig = environment.firebaseConfig;
 
@@ -22,7 +23,8 @@ export const firebaseConfig = environment.firebaseConfig;
   declarations: [
     AppComponent,
     CommunityComponent,
-    MapComponent
+    MapComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
