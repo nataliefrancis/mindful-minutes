@@ -1,21 +1,37 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabaseService } from '../database.service';
 
+//connect with the database  
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
+interface Event {
+  date: string;
+  details: string;
+}
 
 @Component({
   selector: 'app-community',
   templateUrl: './community.component.html',
-  styleUrls: ['./community.component.css']
+  styleUrls: ['./community.component.css'],
+  providers: [DatabaseService]
 })
 export class CommunityComponent implements OnInit {
 
 	public formDate: Date;
 	formDetails;
-	postings=[];
 	newEvent;
+  eventsCol: AngularFirestoreCollection<Event>;
+  events: Observable<Event[]>; //array that comes back from database, used for html ngFor
 
-  constructor() { }
+  constructor(private afs: AngularFirestore) { }
 
   ngOnInit() {
+
+      //identifies which collection I am accessing in my database
+    this.eventsCol = this.afs.collection('events');
+    this.events = this. eventsCol.valueChanges();
   }
 
   // pulls the date value from the form
@@ -25,14 +41,16 @@ export class CommunityComponent implements OnInit {
 
   //retrives the details of the form
   onSubmit = (formData) => {
-  	this.formDetails=formData;
+  	this.formDetails= formData.details;
   		//creates a new event with date and details
   	this.newEvent={
   		date: this.formDate,
   		details: this.formDetails
   		}
-  		//pushes those details to the postings array to be displayed in the ngFor in the HTML
-  	this.postings.push(this.newEvent);
+
+  		//sends newEvent to database
+    this.afs.collection('events').add(this.newEvent)
   }
+
 
 }

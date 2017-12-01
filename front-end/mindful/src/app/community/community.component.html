@@ -13,7 +13,7 @@
 </nav>
 
 
-<app-map></app-map>	
+<!-- <app-map></app-map>	 -->
 
 				<!--Conatiner that holds form -->
 <div class="container">
@@ -42,10 +42,10 @@
 <h3>Community posting</h3>
 
 <ul id="postings">
-	<li *ngFor="let posting of postings">
+	<li *ngFor="let event of events | async">
 		<div class="singlePost">
-			<h1>{{posting.date}}</h1>
-			<p>{{posting.details.details}}</p>
+			<h1>{{event.date}}</h1>
+			<p>{{event.details}}</p>
 		</div>
 	</li>
 </ul>
