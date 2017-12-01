@@ -18,7 +18,7 @@ export class CommunityComponent implements OnInit {
   ngOnInit() {
   }
 
-  // makes the date input the correct format
+  // pulls the date value from the form
   public onInput(value: Date): void{
       this.formDate = value;
   }

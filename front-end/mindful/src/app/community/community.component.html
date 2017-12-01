@@ -1,36 +1,44 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
   <a class="navbar-brand" href="#">Community</a>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      
-    </ul>
-
+    <ul class="navbar-nav mr-auto"> </ul>
   </div>
+
 </nav>
 
 
-<!-- <app-map></app-map>	 -->
+<app-map></app-map>	
 
+				<!--Conatiner that holds form -->
 <div class="container">
 	<h3>Post an event!</h3>
+
 	<form #eventForm = "ngForm" (ngSubmit) = "onSubmit(eventForm.value)">
+
 	  <div class="form-group">
 	    <label class="col-form-label" for="formGroupExampleInput">Date of Event</label>
-	    <!-- <input type="text" name="date" class="form-control" id="" placeholder="in MMDDYY format please" ngModel> -->
+									<!--takes date from input and pipes it into correct format -->
 	    <input #myDatePicker type="date" value='{{ myDate | date:"yyyy-MM-dd" }}' (input)="onInput(myDatePicker.value)" />
 	  </div>
+					<!--Input that takes in details of new events -->
 	  <div class="form-group">
 	    <label class="col-form-label" for="formGroupExampleInput2">Details</label>
 	    <input type="text" name="details" class="form-control" id="" placeholder="Time, Location, etc." ngModel>
 	  </div>
+
 	  <input type="submit" value="Submit">
+
 	</form>
+
 </div>
 
+	<!--New events populate here -->
 <h3>Community posting</h3>
 
 <ul id="postings">
