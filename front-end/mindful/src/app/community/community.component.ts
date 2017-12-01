@@ -10,6 +10,10 @@ interface Event {
   details: string;
 }
 
+interface EventId extends Event {
+  id: string;
+}
+
 @Component({
   selector: 'app-community',
   templateUrl: './community.component.html',
@@ -22,7 +26,7 @@ export class CommunityComponent implements OnInit {
 	formDetails;
 	newEvent;
   eventsCol: AngularFirestoreCollection<Event>;
-  events: Observable<Event[]>; //array that comes back from database, used for html ngFor
+  events: any; //array that comes back from database, used for html ngFor
 
   constructor(private afs: AngularFirestore) { }
 
@@ -30,7 +34,15 @@ export class CommunityComponent implements OnInit {
 
       //identifies which collection I am accessing in my database
     this.eventsCol = this.afs.collection('events');
-    this.events = this. eventsCol.valueChanges();
+    // this.events = this. eventsCol.valueChanges();
+    this.events = this. eventsCol.snapshotChanges()
+      .map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Event;
+          const id = a.payload.doc.id;
+          return { id, data };
+        })
+      });
   }
 
   // pulls the date value from the form
@@ -49,6 +61,10 @@ export class CommunityComponent implements OnInit {
 
   		//sends newEvent to database
     this.afs.collection('events').add(this.newEvent)
+  }
+
+  deleteEvent(eventId) {
+    this.afs.doc('events/'+eventId).delete();
   }
 
 

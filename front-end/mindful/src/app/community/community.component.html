@@ -44,8 +44,9 @@
 <ul id="postings">
 	<li *ngFor="let event of events | async">
 		<div class="singlePost">
-			<h1>{{event.date}}</h1>
-			<p>{{event.details}}</p>
+			<h1>{{event.data.date}}</h1>
+			<p>{{event.data.details}}</p>
+			<button type="button" (click)="deleteEvent(event.id)">Delete</button>
 		</div>
 	</li>
 </ul>
