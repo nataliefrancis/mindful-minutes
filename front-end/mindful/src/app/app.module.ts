@@ -9,7 +9,6 @@ import { HttpModule } from '@angular/http';
 import { environment } from '../environments/environment';
 
 //connect to Firebase DB based on AngularFire2 v4
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
@@ -33,14 +32,13 @@ export const firebaseConfig = environment.firebaseConfig;
     HttpClientModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule,
     AngularFirestoreModule,
     AgmCoreModule.forRoot({
         apiKey: environment.googleMapsKey,
         libraries: ["places"]
     }),
     AppRoutingModule
-  ],          //AngularFireDatabase, AngularFireDatabaseModule                  
+  ],                           
   providers: [],
   bootstrap: [AppComponent]
 })
