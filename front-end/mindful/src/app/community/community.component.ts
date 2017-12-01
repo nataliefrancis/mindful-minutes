@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DatabaseService } from '../database.service';
 
 //connect with the database  
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
@@ -15,7 +14,7 @@ interface Event {
   selector: 'app-community',
   templateUrl: './community.component.html',
   styleUrls: ['./community.component.css'],
-  providers: [DatabaseService]
+  providers: []
 })
 export class CommunityComponent implements OnInit {
 
