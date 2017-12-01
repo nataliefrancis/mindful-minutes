@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AgmCoreModule } from '@agm/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
 
 import { environment } from '../environments/environment';
 
@@ -29,8 +27,6 @@ export const firebaseConfig = environment.firebaseConfig;
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule,
-    HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AgmCoreModule.forRoot({
