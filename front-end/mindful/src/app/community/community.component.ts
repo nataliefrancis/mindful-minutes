@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommunityComponent implements OnInit {
 
-	public myDate: Date;
-	details;
+	public formDate: Date;
+	formDetails;
+	postings=[];
+	newEvent;
 
   constructor() { }
 
@@ -18,12 +20,19 @@ export class CommunityComponent implements OnInit {
 
   // makes the date input the correct format
   public onInput(value: Date): void{
-      this.myDate = value;
+      this.formDate = value;
   }
 
   //retrives the details of the form
   onSubmit = (formData) => {
-  	this.details=formData;
+  	this.formDetails=formData;
+  		//creates a new event with date and details
+  	this.newEvent={
+  		date: this.formDate,
+  		details: this.formDetails
+  		}
+  		//pushes those details to the postings array to be displayed in the ngFor in the HTML
+  	this.postings.push(this.newEvent);
   }
 
 }

@@ -31,8 +31,14 @@
 	</form>
 </div>
 
-<div>
-	<h2>{{myDate}}</h2>
-	<p>{{details}}</p>
-</div>
+<h3>Community posting</h3>
+
+<ul id="postings">
+	<li *ngFor="let posting of postings">
+		<div class="singlePost">
+			<h1>{{posting.date}}</h1>
+			<p>{{posting.details.details}}</p>
+		</div>
+	</li>
+</ul>
 
