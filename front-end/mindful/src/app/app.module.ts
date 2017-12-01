@@ -31,6 +31,7 @@ export const firebaseConfig = environment.firebaseConfig;
     AngularFirestoreModule,
     AgmCoreModule.forRoot({
         apiKey: environment.googleMapsKey,
+        libraries: ["places"]
     }),
     AppRoutingModule
   ],                            
