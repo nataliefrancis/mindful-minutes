@@ -16,6 +16,7 @@ import { CommunityComponent } from './community/community.component';
 import { MapComponent } from './map/map.component';
 import { LandingComponent } from './landing/landing.component';
 import { GuidedComponent } from './guided/guided.component';
+import { HowtoComponent } from './howto/howto.component';
 
 export const firebaseConfig = environment.firebaseConfig;
 
@@ -26,7 +27,8 @@ export const firebaseConfig = environment.firebaseConfig;
     CommunityComponent,
     MapComponent,
     LandingComponent,
-    GuidedComponent
+    GuidedComponent,
+    HowtoComponent
   ],
   imports: [
     BrowserModule,
