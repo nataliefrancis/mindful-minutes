@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommunityComponent } from './community/community.component';
 import { LandingComponent } from './landing/landing.component';
 import { GuidedComponent } from './guided/guided.component';
+import { HowtoComponent } from './howto/howto.component';
 
 const routes: Routes = [
 	{
@@ -13,6 +14,10 @@ const routes: Routes = [
     {
         path: 'guided',
         component: GuidedComponent
+    },
+    {
+        path: 'howto',
+        component: HowtoComponent
     },
     {
         path: 'community',
