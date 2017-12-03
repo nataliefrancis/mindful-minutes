@@ -46,7 +46,7 @@ export class LandingComponent implements OnInit {
       }
 
       		//Activates the timer from the click function in the html
-		private startTimer() {
+		startTimer() {
 
 		  let timer = Observable.timer(1, 1000);
 		  this.sub = timer.subscribe(

@@ -24,7 +24,7 @@
 	  <div class="form-group">
 	    <label class="col-form-label" for="formGroupExampleInput">Date of Event</label>
 									<!--takes date from input and pipes it into correct format -->
-	    <input #myDatePicker type="date" value='{{ myDate | date:"yyyy-MM-dd" }}' (input)="onInput(myDatePicker.value)" />
+	    <input #myDatePicker type="date" value='{{ formDate | date:"yyyy-MM-dd" }}' (input)="onInput(myDatePicker.value)" />
 	  </div>
 					<!--Input that takes in details of new events -->
 	  <div class="form-group">
