@@ -1,8 +1,24 @@
-<ul>
+<!-- <ul>
   <li class="text" *ngFor="let item of items | async">
     {{item.name}}
   </li>
-</ul>
+</ul> -->
+
+  <div class="container-fuild">
+
+		<nav class="navbar navbar-expand-md">
+			<a class="navbar-brand" href="#">Mindful Minutes</a>
+
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="/">Home</a></li>
+			  <li class="active"><a href="/howto">HowTo</a></li>
+			  <li class="active"><a href="/guided">Guided</a></li>
+			  <li class="active"><a href="/community">Community</a></li>
+			</ul>
+		</nav>
+
+  </div> <!-- End container-fluid -->
+
 <router-outlet></router-outlet> 
 
 
