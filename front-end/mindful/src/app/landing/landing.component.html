@@ -1,30 +1,49 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
-	<a class="navbar-brand" href="#">Mindful Minutes</a>
+<div class = "topDisplay">
+	<div class="fade">
+			<!--Nav bar at top -->
+		<nav class="navbar navbar-expand-md">
+			<a class="navbar-brand" href="#">Mindful Minutes</a>
+		</nav>
 
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-	<span class="navbar-toggler-icon"></span>
-	</button>
+		<h2 class="brand">Mindful Minutes</h2>
 
-	<div class="collapse navbar-collapse" id="navbarsExampleDefault">
-		<ul class="navbar-nav mr-auto"> </ul>
+		<blockquote class = "floating">Quiet the mind and the soul will speak<br> -Ma Jaya Sati Bhagavati</blockquote> 
 	</div>
+</div> <!-- end of topDisplay -->
 
-</nav>
-<h2>Quiet the mind and the soul will speak -Ma Jaya Sati Bhagavati</h2>
-<p>15 minutes a day can: boost immune system, lower stress, reduce blood pressure, increase productivity, improve concentration.</p>
+		<!--Skewed background with color -->
+<div class="skewed">
+
+	<div class="content">
+		<div class="bulletItems">
+			<h2 class="listHeader">Just 15 minutes a day can:</h2> 
+			<ul>
+				<li>Boost your immune system</li>
+				<li>Lower stress</li>
+				<li>Reduce blood pressure</li>
+				<li>Increase productivity</li>
+				<li>Improve concentration</li>
+			</ul>
+		</div>
+	</div>
+</div>
 
 <h1>
-      {{(minutesDisplay) && (minutesDisplay <= 59) ? minutesDisplay : '00'}} : {{(secondsDisplay) && (secondsDisplay <= 59) ? secondsDisplay : '00'}} <br/>
- </h1> 
- <button type="button" (click)='startTimer()'>Ready to relax</button>
+		    {{(minutesDisplay) && (minutesDisplay <= 59) ? minutesDisplay : '00'}} : {{(secondsDisplay) && (secondsDisplay <= 59) ? secondsDisplay : '00'}} <br/>
+		</h1> 
+
+		<button type="button" (click)='startTimer()'>Ready to relax</button>
 
 
-<div class="circle">Just breathe</div>
+		<div class="circle">Just breathe</div>
 
-<h3>Get inspired</h3>
-<p>Sometimes simply by sitting, the soul collects wisdom.</p>
-<p>-Zen Proverb</p>
+		<h3>Get inspired</h3>
+		<p>Sometimes simply by sitting, the soul collects wisdom.</p>
+		<p>-Zen Proverb</p>
+
+	
+
 
 <!-- <ul id="quotes">
 	<li *ngFor="let quote of quotes | async">
