@@ -19,28 +19,44 @@
 		<div class="bulletItems">
 			<h2 class="listHeader">Just 15 minutes a day can:</h2> 
 			<ul>
-				<li>Boost your immune system</li>
-				<li>Lower stress</li>
-				<li>Reduce blood pressure</li>
-				<li>Increase productivity</li>
+				<li>Boost your immune system |</li>
+				<li>Lower stress |</li>
+				<li>Reduce blood pressure |</li>
+				<li>Increase productivity |</li>
 				<li>Improve concentration</li>
 			</ul>
 		</div>
 	</div>
 </div>
 
-<h1>
-		    {{(minutesDisplay) && (minutesDisplay <= 59) ? minutesDisplay : '00'}} : {{(secondsDisplay) && (secondsDisplay <= 59) ? secondsDisplay : '00'}} <br/>
-		</h1> 
+<div class="moment"> <!-- Div holds circle and timer -->
 
-		<button type="button" (click)='startTimer()'>Ready to relax</button>
+	<h2>So take a moment right now for yourself...</h2>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="circle">Just breathe</div> <!-- pulsing circle -->
+		</div>
+		
+		<div class="col-md-6">
+			<div class="timer">
+				<h1> 				<!-- Timer -->
+					{{(minutesDisplay) && (minutesDisplay <= 59) ? minutesDisplay : '00'}} : {{(secondsDisplay) && (secondsDisplay <= 59) ? secondsDisplay : '00'}} <br/>
+				</h1> 
+
+				<button type="button" (click)='startTimer()'>I'm ready to relax</button>
+			</div>
+		</div>
+		
+	</div>
+	
+</div>
 
 
-		<div class="circle">Just breathe</div>
-
-		<h3>Get inspired</h3>
-		<p>Sometimes simply by sitting, the soul collects wisdom.</p>
-		<p>-Zen Proverb</p>
+<div class="inspired">
+	<h3>Be inspired.</h3>
+	<p>Sometimes simply by sitting, the soul collects wisdom. -Zen Proverb</p>
+</div>
 
 	
 
