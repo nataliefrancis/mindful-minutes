@@ -1,53 +1,65 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
-  <a class="navbar-brand" href="#">Community</a>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto"> </ul>
-  </div>
+	<a class="navbar-brand" href="#">Community</a>
 
 </nav>
 
+<div class="container-fluid">
+	<div class="container"> <!-- Holds map and form -->
 
-<app-map></app-map>	
-
-				<!--Conatiner that holds form -->
-<div class="container">
-	<h3>Post an event!</h3>
-
-	<form #eventForm = "ngForm" (ngSubmit) = "onSubmit(eventForm.value)">
-
-	  <div class="form-group">
-	    <label class="col-form-label" for="formGroupExampleInput">Date of Event</label>
-									<!--takes date from input and pipes it into correct format -->
-	    <input #myDatePicker type="date" value='{{ formDate | date:"yyyy-MM-dd" }}' (input)="onInput(myDatePicker.value)" />
-	  </div>
-					<!--Input that takes in details of new events -->
-	  <div class="form-group">
-	    <label class="col-form-label" for="formGroupExampleInput2">Details</label>
-	    <input type="text" name="details" class="form-control" id="" placeholder="Time, Location, etc." ngModel>
-	  </div>
-
-	  <input type="submit" value="Submit">
-
-	</form>
-
-</div>
-
-	<!--New events populate here -->
-<h3>Community posting</h3>
-
-<ul id="postings">
-	<li *ngFor="let event of events | async">
-		<div class="singlePost">
-			<h1>{{event.data.date}}</h1>
-			<p>{{event.data.details}}</p>
-			<button type="button" (click)="deleteEvent(event.id)">Delete</button>
+		<div class="map">
+			<app-map></app-map>	
 		</div>
-	</li>
-</ul>
+
+		<div class="row"> 
+			<div class="col-md-3"></div>
+
+			<div class="col-md-6 formPost"> <!-- Div that holds form inputs -->
+				<h3>Post an event!</h3>
+
+				<form #eventForm = "ngForm" (ngSubmit) = "onSubmit(eventForm.value)">
+
+					<div class="form-group">
+					    <label class="col-form-label" for="formGroupExampleInput">Date of Event</label>
+								<!--takes date from input and pipes it into correct format -->
+					    <input #myDatePicker type="date" value='{{ formDate | date:"yyyy-MM-dd" }}' (input)="onInput(myDatePicker.value)" />
+					</div>
+							<!--Input that takes in details of new events -->
+					<div class="form-group">
+					    <label class="col-form-label" for="formGroupExampleInput2">Details</label>
+					    <input type="text" name="details" class="form-control" id="" placeholder="Time, Location, etc." ngModel>
+					</div>
+
+				  <input class="submitBtn" type="submit" value="Submit">
+
+				</form>
+			</div>
+
+			<div class="col-md-3"></div>
+
+		</div>
+
+	</div> <!-- End of conatiner -->
+
+
+	<div class="bulletin"> <!-- bulletin board portion of page -->
+		<div class="row">
+			<h3>Community postings</h3> 		<!--New events populate here -->
+
+				<ul>
+					<li class="col-md-3 d-inline-block singlePost" *ngFor="let event of events | async">
+						<div>
+							<h1>{{event.data.date}}</h1>
+							<p>{{event.data.details}}</p>
+							<button type="button" (click)="deleteEvent(event.id)">Delete</button>
+						</div>
+					</li>
+				</ul>
+		</div>
+	</div>
+	
+
+
+</div> <!-- end conatiner-fluid -->
+
 
