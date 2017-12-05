@@ -1,11 +1,12 @@
 .navbar {
     margin-bottom: 0;
+    box-shadow: -5px 5px 11px -2px rgba(0,0,0,0.67);
 }
 
 .navbar-brand {
 	font-family: 'Calligraffitti', cursive;
 	font-size: 30px;
-	color: white;
+	color: #2E84A5;
 }
 
 li {
