@@ -1,3 +1,16 @@
+.intro {
+	background-image: url('../../assets/person-in-water.png');
+	background-size: cover;
+	height: 150px;
+	width: 100%;
+	padding: 40px;
+	text-align: center;
+	font-family: 'Calligraffitti', cursive;
+	color: white;
+	font-size: 40px;
+	box-shadow: -5px 5px 11px -2px rgba(0,0,0,0.67);
+}
+
 .container-fluid {
 	background-color: #F8FAFA;
 	font-family: 'Kalam', cursive;
@@ -55,4 +68,14 @@
 	width: 300px;
 	margin: 7px;
 	box-shadow: -5px 5px 11px -2px rgba(0,0,0,0.67);
+}
+
+.singlePost h1 {
+	font-size: 25px;
+	color: #404146;
+	text-decoration: underline;
+}
+
+.singlePost p {
+	font-size: 20px;
 }

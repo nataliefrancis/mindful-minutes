@@ -1,4 +1,8 @@
 
+<h1 class="intro">
+	Connect with fellow mind travelers. See what's happening at your local community centers, or post an event of your own!
+</h1>
+
 <div class="container-fluid">
 	<div class="container"> <!-- Holds map and form -->
 
@@ -46,7 +50,7 @@
 						<div>
 							<h1>{{event.data.date}}</h1>
 							<p>{{event.data.details}}</p>
-							<button type="button" (click)="deleteEvent(event.id)">Delete</button>
+							<button type="button" (click)="deleteEvent(event.id)">X</button>
 						</div>
 					</li>
 				</ul>

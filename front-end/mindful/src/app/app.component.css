@@ -1,0 +1,15 @@
+.navbar {
+    margin-bottom: 0;
+}
+
+.navbar-brand {
+	font-family: 'Calligraffitti', cursive;
+	font-size: 30px;
+	color: white;
+}
+
+li {
+	font-family: 'Kalam', cursive;
+	font-size: 25px;
+	padding: 10px;
+}
